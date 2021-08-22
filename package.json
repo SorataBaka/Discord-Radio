@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/voice": "^0.6.0",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "fs": "^0.0.1-security",
+    "libsodium-wrappers": "^0.7.9",
+    "ytdl-core": "^4.9.1"
+  },
+  "name": "discord-radio",
+  "version": "1.0.0",
+  "description": "24/7 Music streaming discord bot",
+  "main": "./index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon"
+  },
+  "keywords": [
+    "discord",
+    "radio",
+    "24/7",
+    "music"
+  ],
+  "author": "Christian Harjuno (Sorata)",
+  "license": "ISC",
+  "devDependencies": {}
+}
