@@ -25,5 +25,13 @@
   ],
   "author": "Christian Harjuno (Sorata)",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SorataBaka/Discord-Radio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SorataBaka/Discord-Radio/issues"
+  },
+  "homepage": "https://github.com/SorataBaka/Discord-Radio#readme"
 }
