@@ -30,7 +30,7 @@ module.exports = {
     })
     stringArray.join(" ")
     const embed = new MessageEmbed()
-      .setTitle(`Help module for ${client.name} discord Bot`)
+      .setTitle(`Help module for ${client.user.username} discord Bot`)
       .addField("Commands", stringArray.join(" "))
       .setTimestamp()
       .setFooter(`Do ${prefix} help {command name} to get more information about a command.`)

@@ -8,8 +8,9 @@ module.exports = {
     if(!client.player || !client.player.connection) return message.reply("No available connection exists")
 
     if(client.player.connection._state.status == "ready"){
-      await client.player.connection.destroy()
+      await client.connection.destroy()
       const stopPlayer = await client.player.stop()
+      clearInterval(client.interval)
       if(stopPlayer) return message.reply("Successfully stopped stream")
       return message.reply("Failed to stop stream")
     }else{
