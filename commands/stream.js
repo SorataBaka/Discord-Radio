@@ -93,7 +93,7 @@ module.exports = {
         }
       })
     }
-
+    disconnectedEvent()
 
     client.connection = connection
     client.player = player
