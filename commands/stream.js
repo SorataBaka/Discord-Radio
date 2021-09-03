@@ -66,7 +66,7 @@ module.exports = {
     const subscribe = connection.subscribe(player)
     if(subscribe) return message.reply("Now streaming music")
 
-    player.on('stateChange', (oldState, newState) => {
+    player.on('stateChange', async (oldState, newState) => {
       if (oldState.status === AudioPlayerStatus.Idle && newState.status === AudioPlayerStatus.Playing) {
         message.reply("Playing audio output on audio channel")
 
