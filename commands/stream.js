@@ -9,7 +9,7 @@ const {
 	joinVoiceChannel,
   generateDependencyReport
 } = require('@discordjs/voice');
-const ytdl = require('ytdl-core')
+const ytdl = require('ytdl-core-discord')
 
 
 
@@ -32,11 +32,7 @@ module.exports = {
 
 
     //create a stream from youtube and convert it into a playable resource
-    var stream = ytdl(args, {quality: "highest"})
-    stream.on("error", err => {
-      console.error(err)
-      return message.reply("Unable to create stream.")
-    }) 
+    var stream = await ytdl(args, {quality: "highest"})
     const resource = createAudioResource(stream)
 
 
@@ -83,6 +79,21 @@ module.exports = {
         player.play(resource,{inputType: StreamType.OggOpus})
       }
     })
+    
+
+    const disconnectedEvent = async() => {
+      await entersState(connection, VoiceConnectionStatus.Disconnected, 30_000).catch(async (err) => {
+        console.error(err)
+        message.reply("Disconnected. Attempting to rejoin")
+        connection = await connectToChannel(voiceChannel);
+        if(connection){
+          const subscribe = connection.subscribe(player)
+          if(subscribe) message.reply("Now streaming music")
+          disconnectedEvent()
+        }
+      })
+    }
+
 
     client.connection = connection
     client.player = player
