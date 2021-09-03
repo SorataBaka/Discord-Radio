@@ -32,7 +32,7 @@ module.exports = {
 
 
     //create a stream from youtube and convert it into a playable resource
-    var stream = await ytdl(args, {quality: "highest"})
+    var stream = await ytdl(args)
     const resource = createAudioResource(stream)
 
 
@@ -74,7 +74,7 @@ module.exports = {
         message.reply("Playback stopped, attempting to restart")
 
         stream.destroy()
-        stream = ytdl(args, {quality: "highest"})
+        stream = await ytdl(args)
         const resource = createAudioResource(stream)
         player.play(resource,{inputType: StreamType.OggOpus})
       }
