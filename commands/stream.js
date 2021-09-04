@@ -82,8 +82,11 @@ module.exports = {
     
 
     const disconnectedEvent = async() => {
-      await entersState(connection, VoiceConnectionStatus.Disconnected, 30_000).catch(async (err) => {
+      const disconnected = await entersState(connection, VoiceConnectionStatus.Disconnected, 30_000).catch(async (err) => {
         console.error(err)
+        
+      })
+      if(disconnected){
         message.reply("Disconnected. Attempting to rejoin")
         connection = await connectToChannel(voiceChannel);
         if(connection){
@@ -91,7 +94,7 @@ module.exports = {
           if(subscribe) message.reply("Now streaming music")
           disconnectedEvent()
         }
-      })
+      }
     }
     disconnectedEvent()
 
