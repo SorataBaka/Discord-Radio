@@ -3,7 +3,7 @@ module.exports = {
   async execute(message, client) {
     if(!message.guild) return
     if(message.author.bot) return
-    const PREFIX = process.env.PREFIX
+    const PREFIX = process.env["PREFIX"]
     //Parse Message
     const parsedMessage = message.content.split(" ")
     if(parsedMessage[0].toUpperCase() == PREFIX.toUpperCase()){

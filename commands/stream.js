@@ -14,7 +14,7 @@ const ytdl = require('ytdl-core-discord')
 
 
 console.log(generateDependencyReport())
-const prefix = process.env.PREFIX
+const prefix = process.env['PREFIX']
 
 
 module.exports = {
@@ -33,7 +33,7 @@ module.exports = {
 
     //create a stream from youtube and convert it into a playable resource
     var stream = await ytdl(args)
-    const resource = createAudioResource(stream)
+    var resource = createAudioResource(stream)
 
 
     //create an audio player to play the resource and play
@@ -75,11 +75,23 @@ module.exports = {
 
         stream.destroy()
         stream = await ytdl(args)
-        const resource = createAudioResource(stream)
+        resource = createAudioResource(stream)
         player.play(resource,{inputType: StreamType.OggOpus})
       }
     })
     
+    const refresh = async() => {
+      stream = await ytdl(args)
+      resource = createAudioResource(stream)
+      player.play(resource,{inputType: StreamType.OggOpus})
+      connection.subscrbe(player)
+      console.log("Refreshed")
+    }
+    client.connection = connection
+    client.player = player
+    setInterval(refresh, 10000)
+
+
 
     const disconnectedEvent = async() => {
       const disconnected = await entersState(connection, VoiceConnectionStatus.Disconnected, 30_000).catch(async (err) => {
@@ -97,8 +109,5 @@ module.exports = {
       }
     }
     disconnectedEvent()
-
-    client.connection = connection
-    client.player = player
   }
 }

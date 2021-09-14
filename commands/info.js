@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js")
-const prefix = process.env.PREFIX
+const prefix = process.env['PREFIX']
 module.exports = {
   name: "info",
   description: "Lists the information of the bot",

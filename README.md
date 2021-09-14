@@ -16,7 +16,11 @@ To reduce the load caused by routing audio from youtube to Discord Voice Channel
 |ffmpeg-static|4.4.0|
 |libsodium-wrappers|0.7.9|
 |ytdl-core-discord|1.3.1|
+
+
 <hr>
+
+
 **discord.js**: Powerful Node.JS module to enable easy interaction with discord's API.
 
 **@discordjs/voice**: Discord.JS Voice module. Support for voice has been deprecated ever since Discord.JS v13 so a propritary module is required to support voice.
@@ -35,12 +39,16 @@ To reduce the load caused by routing audio from youtube to Discord Voice Channel
 1. Before starting, make sure you have the latest Node.JS Installed on your machine.
 2. First clone or download the repo.
 3. Open the folder via a code editor and create a new file with the name ".env"
-4. Fill in the .env file with a bot token and prefix like such: <br>
+4. Fill in the .env file with a bot token and prefix like such: </br>
 <code>
-TOKEN="FILL_THIS_WITH_THE_TOKEN_OF_YOUR_DISCORD_BOT"<br>
+TOKEN="FILL_THIS_WITH_THE_TOKEN_OF_YOUR_DISCORD_BOT"</br>
 PREFIX="APREFIX"
 </code>
 <br>
 *make sure both of the token and prefix is provided or it will not run properly.*
 4. Open a console from the bot folder and run <code>npm install</code>
 5. Once every package is completely installed, run <code>npm start</code>
+
+<hr>
+
+Latest update to add support for hosting on replit.
