@@ -2,6 +2,8 @@
 
 **A 24/7 Discord music streaming bot**
 
+```docker pull christianharjuno/discord-radio:latest```
+
 Simple and light Discord Bot that streams opus audio from a Youtube LIVE Source using the Ytdl package. 
 
 To reduce the load caused by routing audio from youtube to Discord Voice Channels, this bot uses the Ytdl-Discord wrapper to avoid useless encodings.
