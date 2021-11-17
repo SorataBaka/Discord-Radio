@@ -90,7 +90,7 @@ module.exports = {
     client.connection = connection
     client.player = player
     setInterval(refresh, 10000)
-
+    
 
 
     const disconnectedEvent = async() => {
